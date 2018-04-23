@@ -37,7 +37,9 @@ function eyesWith(fn) {
       const result = hooked.apply(this, arguments);
       result.befores.unshift({
         fn(done) {
-          eyes.open(appName, `eyes.it ${spec.getFullName()}`, windowSize).then(done);
+          eyes
+            .open(appName, `eyes.it ${spec.getFullName()}`, windowSize)
+            .then(done);
         },
         timeout: () => 30000,
       });
@@ -64,9 +66,9 @@ function getBatchUUID() {
   return process.env.EYES_BATCH_UUID;
 }
 
-function setOnceBatchUUID(uuid) {
+function setOnceBatchUUID(_uuid) {
   if (!getBatchUUID()) {
-    process.env.EYES_BATCH_UUID = uuid;
+    process.env.EYES_BATCH_UUID = _uuid;
   }
 }
 

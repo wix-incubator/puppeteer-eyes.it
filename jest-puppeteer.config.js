@@ -3,4 +3,4 @@ module.exports = {
     command: 'node test/server.js',
     port: 3000,
   },
-}
+};
