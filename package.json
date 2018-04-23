@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-local": "EYES_API_KEY='' jest",
     "test": "jest"
   },
   "jest": {
@@ -13,6 +12,7 @@
   "author": "Yaniv Efraim <yanivef@wix.com>",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^5.0.1",
     "eyes.images": "0.0.50",
     "uuid": "^3.2.1"
   },

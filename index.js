@@ -1,6 +1,7 @@
 const path = require('path');
 const uuid = require('uuid');
 const {Eyes} = require('eyes.images');
+require('dotenv').config();
 
 const appName = require(path.join(process.cwd(), 'package.json')).name;
 const eyes = new Eyes();
