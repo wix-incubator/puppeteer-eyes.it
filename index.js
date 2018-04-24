@@ -84,10 +84,12 @@ function _init() {
     eyes.it = eyesWith(it);
     eyes.fit = eyesWith(fit);
     eyes.test = eyesWith(test);
+    eyes.test.only = eyesWith(test.only);
   } else {
     eyes.it = eyesWithout(it);
     eyes.fit = eyesWithout(fit);
-    eyes.test = eyesWithout(test);
+    eyes.test = eyesWith(test);
+    eyes.test.only = eyesWithout(test.only);
   }
 
   eyes.defaultWindowSize = null;
