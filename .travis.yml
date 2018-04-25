@@ -1,3 +1,4 @@
+language: node_js
 sudo: required
 dist: trusty
 addons:
@@ -14,10 +15,7 @@ cache:
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-language: node_js
 
-script: >
-    npm run test
 notifications:
   email:
     recipients:
