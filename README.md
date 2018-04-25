@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/wix-incubator/puppeteer-eyes.it.svg?branch=master)](https://travis-ci.org/wix-incubator/puppeteer-eyes.it)
 
-Automatic screenshot comparison using [Puppeteer](https://github.com/GoogleChrome/puppeteer/), [Jest](https://github.com/facebook/jest) and [Eyes](https://applitools.com/).
+Automatic screenshot comparison using [Puppeteer](https://github.com/GoogleChrome/puppeteer/), [Jest](https://github.com/facebook/jest) and [Applitools Eyes](https://applitools.com/).
 
 ## Getting started
 
