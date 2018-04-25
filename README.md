@@ -53,5 +53,21 @@ Default version is '1.0.0'
 `puppeteer-eyes.it` automatically take screenshot at the end of your test and sent it to Applitools eyes.
 
 
+### Example
+
+```js
+  const puppeteer = require('puppeteer');
+  let page;
+  beforeAll(async () => {
+    const browser = await puppeteer.launch();
+    page = global.page = await browser.newPage();
+  });
+  afterAll(() => browser.close());
+  eyes.it('test description', async () => {
+    await page.goto('http://www.wix.com');
+    expect(await page.title()).toEqual('Free Website Builder | Create a Free Website | Wix.com');
+  });
+```
+  
 
 
