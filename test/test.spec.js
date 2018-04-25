@@ -18,7 +18,7 @@ describe('Eyes with default version', () => {
 
 describe('Eyes with new baseline, according to versions', () => {
   eyes.it(
-    `should work for eyes.itv, version 1.0.0`,
+    `should work for eyes.it, version 1.0.0`,
     async () => {
       await global.page.goto('http://localhost:3000');
       expect(await global.page.$eval('div', el => el.innerText)).toEqual(
@@ -28,7 +28,7 @@ describe('Eyes with new baseline, according to versions', () => {
     {version: '1.0.0'},
   );
   eyes.it(
-    `should work for eyes.itv, version 1.0.1`,
+    `should work for eyes.it, version 1.0.1`,
     async () => {
       await global.page.goto('http://localhost:3000/index2.html');
       expect(await global.page.$eval('div', el => el.innerText)).toEqual(
