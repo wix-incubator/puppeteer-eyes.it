@@ -48,7 +48,7 @@ eyes.it('test description', async () => {
 Default version is '1.0.0'
 
 
-### How it works
+### How does it work
 
 `puppeteer-eyes.it` automatically take screenshot at the end of your test and sent it to Applitools eyes. When Eyes detects a diff in screenshot, **your build will fail** and you will have a link to Applitools site with visual diff of the screenshot. 
 
