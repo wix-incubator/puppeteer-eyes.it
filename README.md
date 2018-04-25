@@ -12,7 +12,7 @@ Automatic screenshot comparison using [Puppeteer](https://github.com/GoogleChrom
 
 ### Setup
 
-1. Add Puppeteer's `page` on global (if you are using [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer) you already have it on global
+1. Add Puppeteer's `page` on global (if you are using [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer) you already have it on global)
 
 2. Add your Applitools' eyes key to `EYES_API_KEY` env variable:
   - locally: add an `.env` file, with:
