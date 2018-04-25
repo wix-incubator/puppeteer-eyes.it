@@ -21,6 +21,10 @@ Automatic screenshot comparison using [Puppeteer](https://github.com/GoogleChrom
       ```
         EYES_API_KEY=<your key here>
       ```
+      
+    **Important** 
+    - this is not mandatory - you should use it if you want to use eyes when running locally.
+    - **you should put your `.env` file in git ignore!!!**
     ##### on CI:
 
     Travis: go to your build's `options -> settings -> Environment Variables` and add `EYES_API_KEY` + your key
