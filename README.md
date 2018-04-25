@@ -40,8 +40,9 @@ In order to have a new screenshot [baseline](https://applitools.com/docs/topics/
 
 ```js
 eyes.it('test description', async () => {
-  // test goes here
-}, {version: '1.0.1'} 
+    // test goes here
+}, {version: '1.0.1'});
+  
 ```
 
 Default version is '1.0.0'
