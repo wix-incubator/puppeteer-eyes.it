@@ -18,9 +18,7 @@
     "no-underscore-dangle": "off",
     "no-unused-expressions": "off",
     "no-use-before-define": "off",
-    "prefer-rest-params": "off",
     "import/no-dynamic-require": "off",
-    "prefer-destructuring": "off",
     "func-names": "off",
     "prettier/prettier": [
       "error",

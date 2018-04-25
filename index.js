@@ -11,34 +11,44 @@ function handleError(err, done) {
   done();
 }
 
-function isPassedWindowSizeArgument(argumentsObj) {
-  return typeof argumentsObj[2] === 'object';
-}
-
 function eyesWithout(fn) {
-  return function() {
-    if (isPassedWindowSizeArgument(arguments)) {
-      delete arguments[2];
-    }
-    return fn.apply(this, arguments);
+  return function(...args) {
+    args = args.filter((arg, i) => {
+      if (i === 2 && typeof arg === 'object') {
+        return false;
+      }
+      return true;
+    });
+    return fn.apply(this, args);
   };
 }
 
 function eyesWith(fn) {
-  return function() {
-    let windowSize = eyes.defaultWindowSize;
-    if (isPassedWindowSizeArgument(arguments)) {
-      windowSize = arguments[2];
-      delete arguments[2];
-    }
-    const spec = fn.apply(this, arguments);
+  return function(...args) {
+    const [
+      ,
+      ,
+      {version = '1.0.0', windowSize = eyes.defaultWindowSize} = {},
+    ] = args;
+    args = args.filter((arg, i) => {
+      if (i === 2 && typeof arg === 'object') {
+        return false;
+      }
+      return true;
+    });
+
+    const spec = fn.apply(this, args);
     const hooked = spec.beforeAndAfterFns;
-    spec.beforeAndAfterFns = function() {
-      const result = hooked.apply(this, arguments);
+    spec.beforeAndAfterFns = function(...beforeAndAfterArgs) {
+      const result = hooked.apply(this, beforeAndAfterArgs);
       result.befores.unshift({
         fn(done) {
           eyes
-            .open(appName, `eyes.it ${spec.getFullName()}`, windowSize)
+            .open(
+              appName,
+              `eyes.it ${spec.getFullName()} version: ${version}`,
+              windowSize,
+            )
             .then(done);
         },
         timeout: () => 30000,
@@ -47,7 +57,7 @@ function eyesWith(fn) {
         async fn(done) {
           try {
             const img = await global.page.screenshot();
-            await eyes.checkImage(img, spec.getFullName());
+            await eyes.checkImage(img, `${spec.getFullName()} ${version}`);
             await eyes.close();
             done();
           } catch (err) {
