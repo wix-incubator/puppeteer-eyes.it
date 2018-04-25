@@ -16,7 +16,7 @@ Automatic screenshot comparison using [Puppeteer](https://github.com/GoogleChrom
 
 2. Add your Applitools' eyes [key](https://applitools.com/docs/topics/overview/obtain-api-key.html) to `EYES_API_KEY` env variable:
 
-  #### on CI
+  #### CI
 
     Travis: go to your build's `options -> settings -> Environment Variables` and add `EYES_API_KEY` + your key
 
