@@ -15,19 +15,22 @@ Automatic screenshot comparison using [Puppeteer](https://github.com/GoogleChrom
 1. Add Puppeteer's `page` on global (if you are using [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer) you already have it on global)
 
 2. Add your Applitools' eyes [key](https://applitools.com/docs/topics/overview/obtain-api-key.html) to `EYES_API_KEY` env variable:
-    ##### locally: 
-    
-    add an `.env` file, with:
-      ```
-        EYES_API_KEY=<your key here>
-      ```
-      
-    **Important** 
-    - this is not mandatory - you should use it if you want to use eyes when running locally.
-    - **you should put your `.env` file in git ignore!!!**
-    ##### on CI:
+
+  #### on CI
 
     Travis: go to your build's `options -> settings -> Environment Variables` and add `EYES_API_KEY` + your key
+
+  #### locally 
+    
+  add an `.env` file, with:
+      
+  ```
+    EYES_API_KEY=<your key here>
+  ```
+      
+  - this step is not mandatory - you should use it if you want to use eyes when running locally.
+  - **you should put your `.env` file in git ignore!!!**
+
 
 3. Change your test to use `eyes.it` or `eyes.test` instead of `it` or `test`
 
