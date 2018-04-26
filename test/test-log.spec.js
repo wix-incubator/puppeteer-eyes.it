@@ -17,7 +17,7 @@ describe('Log', () => {
     res.stdout.on('data', data => {
       _data += data.toString('utf8');
     });
-    res.on('close', () => fullfill());
+    res.on('close', fullfill);
     await p;
     expect(_data).toContain('eyes comparison succeed');
   });
