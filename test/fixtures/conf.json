@@ -1,0 +1,3 @@
+{
+  "testMatch": [ "**/test/fixtures/*.customSpec.js"]
+}

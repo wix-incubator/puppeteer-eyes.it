@@ -8,8 +8,8 @@ describe('Log', () => {
 
     const res = spawn('node', [
       path.join(__dirname, '..', 'node_modules', 'jest', 'bin', 'jest.js'),
-      path.join(__dirname, 'test.customSpec.js'),
-      `--config=${path.join(__dirname, '/conf.json')}`,
+      path.join(__dirname, 'fixtures', 'test.customSpec.js'),
+      `--config=${path.join(__dirname, 'fixtures', 'conf.json')}`,
       path.join(__dirname, '..', 'index.js'),
     ]);
     res.stdout.on('data', data => {
