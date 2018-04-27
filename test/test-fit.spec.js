@@ -1,7 +1,7 @@
 const eyes = require('../index');
 
 eyes.fit(`should work for eyes.fit`, async () => {
-  await global.page.goto('http://localhost:3000');
+  await global.page.setContent('<div>Hi there!</div>');
   expect(await global.page.$eval('div', el => el.innerText)).toEqual(
     'Hi there!',
   );

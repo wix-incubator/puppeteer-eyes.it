@@ -10,7 +10,7 @@ describe('Eyes with default version', () => {
     {fnName: 'test', fn: test},
   ].forEach(type => {
     type.fn(`should work for ${type.fnName}`, async () => {
-      await global.page.goto('http://localhost:3000');
+      await global.page.setContent('<div>Hi there!</div>');
       expect(await global.page.$eval('div', el => el.innerText)).toEqual(
         'Hi there!',
       );
@@ -22,7 +22,7 @@ describe('Eyes with new baseline, according to versions', () => {
   eyes.it(
     `should work for eyes.it, version 1.0.0`,
     async () => {
-      await global.page.goto('http://localhost:3000');
+      await global.page.setContent('<div>Hi there!</div>');
       expect(await global.page.$eval('div', el => el.innerText)).toEqual(
         'Hi there!',
       );
@@ -32,7 +32,7 @@ describe('Eyes with new baseline, according to versions', () => {
   eyes.it(
     `should work for eyes.it, version 1.0.0`,
     async () => {
-      await global.page.goto('http://localhost:3000/index2.html');
+      await global.page.setContent('<div>Ho there!</div>');
       expect(await global.page.$eval('div', el => el.innerText)).toEqual(
         'Ho there!',
       );
