@@ -10,7 +10,7 @@ describe('Eyes with default version', () => {
     {fnName: 'test', fn: test},
   ].forEach(type => {
     type.fn(`should work for ${type.fnName}`, async () => {
-      const divText = 'Hi there!';
+      const divText = 'Hello World!';
       await global.page.setContent(`<div>${divText}</div>`);
       expect(await global.page.$eval('div', el => el.innerText)).toEqual(
         divText,
