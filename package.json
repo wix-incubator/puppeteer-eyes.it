@@ -7,7 +7,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "pretest": "eslint .",
+    "posttest": "eslint .",
     "test": "EYES_TESTS=true jest",
     "release": "wnpm-release --no-shrinkwrap"
   },
