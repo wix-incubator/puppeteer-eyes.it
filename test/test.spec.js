@@ -46,6 +46,8 @@ describe('Eyes with new baseline, according to versions', () => {
 
 describe('Log', () => {
   it('should log after eyes success', async () => {
+    const spawnTestDescription = 'should work';
+    const defaultVersion = '1.0.0';
     const {spawn} = require('child_process');
     let _data;
     let fullfill;
@@ -62,6 +64,9 @@ describe('Log', () => {
     });
     res.on('close', fullfill);
     await p;
-    expect(_data).toContain('eyes comparison succeed');
+
+    expect(_data).toContain(
+      `eyes comparison succeed. Image key: ${spawnTestDescription} ${defaultVersion}`,
+    );
   });
 });

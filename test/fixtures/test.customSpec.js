@@ -15,6 +15,6 @@ afterAll(() => browser.close());
 
 eyes.it(`should work`, async () => {
   global.page = await browser.newPage();
-  await global.page.setContent('<div>Hello World</div>');
+  await global.page.setContent('<div>Hello</div>');
   expect(true).toEqual(true);
 });
