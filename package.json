@@ -8,7 +8,7 @@
   },
   "scripts": {
     "pretest": "eslint .",
-    "test": "jest",
+    "test": "EYES_TESTS=true jest",
     "release": "wnpm-release --no-shrinkwrap"
   },
   "jest": {
