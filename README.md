@@ -14,7 +14,13 @@ Automatic screenshot comparison using [Puppeteer](https://github.com/GoogleChrom
 
 1. Add Puppeteer's `page` on global (if you are using [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer) you already have it on global)
 
-2. Add your Applitools' eyes [key](https://applitools.com/docs/topics/overview/obtain-api-key.html) to `APPLITOOLS_API_KEY` env variable:
+2. Require `puppeteer-eyes.it`:
+
+```js
+const eyes = require('puppeteer-eyes.it');
+```
+
+3. Add your Applitools' eyes [key](https://applitools.com/docs/topics/overview/obtain-api-key.html) to `APPLITOOLS_API_KEY` env variable:
 
     #### CI
 
@@ -34,7 +40,7 @@ Automatic screenshot comparison using [Puppeteer](https://github.com/GoogleChrom
 
   **Key name change** `EYES_API_KEY` is being replaced with `APPLITOOLS_API_KEY`. For now, we support both of them.
 
-3. Change your test to use `eyes.it` or `eyes.test` instead of `it` or `test`
+4. Change your test to use `eyes.it` or `eyes.test` instead of `it` or `test`
 
 ### Change screenshot baseline
 
@@ -59,6 +65,7 @@ Default version is '1.0.0'
 
 ```js
   const puppeteer = require('puppeteer');
+  const eyes = require('puppeteer-eyes.it');
   let page;
   beforeAll(async () => {
     const browser = await puppeteer.launch();
