@@ -52,7 +52,7 @@ Default version is '1.0.0'
 
 ### How does it work
 
-`puppeteer-eyes.it` automatically take screenshot at the end of your test and sent it to Applitools eyes. When Eyes detects a diff in screenshot, **your build will fail** and you will have a link to Applitools site with visual diff of the screenshot.
+`puppeteer-eyes.it` automatically takes a screenshot at the end of your test and sends it to Applitools eyes. When Eyes detects a diff in  the screenshot, **your build will fail** and you will have a link to Applitools site with the visual diff of the screenshot.
 
 
 ### Example
