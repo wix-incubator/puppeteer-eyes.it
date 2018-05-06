@@ -1,5 +1,6 @@
-const eyes = require('../index');
+const execa = require('execa');
 const path = require('path');
+const eyes = require('../index');
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
 describe('Eyes with default version', () => {
@@ -48,24 +49,15 @@ describe('Log', () => {
   it('should log after eyes success', async () => {
     const spawnTestDescription = 'should work';
     const defaultVersion = '1.0.0';
-    const {spawn} = require('child_process');
-    let _data;
-    let fullfill;
-    const p = new Promise(resolve => (fullfill = resolve));
 
-    const res = spawn('node', [
+    const res = await execa('node', [
       path.join(__dirname, '..', 'node_modules', 'jest', 'bin', 'jest.js'),
       path.join(__dirname, 'fixtures', 'test.customSpec.js'),
       `--config=${path.join(__dirname, 'fixtures', 'conf.json')}`,
       path.join(__dirname, '..', 'index.js'),
     ]);
-    res.stdout.on('data', data => {
-      _data += data.toString('utf8');
-    });
-    res.on('close', fullfill);
-    await p;
 
-    expect(_data).toContain(
+    expect(res.stdout).toContain(
       `eyes comparison succeed. Image key: ${spawnTestDescription} ${defaultVersion}`,
     );
   });
