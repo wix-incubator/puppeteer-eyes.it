@@ -21,8 +21,8 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@applitools/eyes-images": "^4.12.36",
     "dotenv": "^5.0.1",
-    "eyes.images": "0.0.50",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
