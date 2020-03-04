@@ -1,4 +1,4 @@
 {
   "testMatch": [ "**/test/fixtures/*.customSpec.js"],
-  "testEnvironment": "node"
+  "reporters": ["jest-standard-reporter"]
 }

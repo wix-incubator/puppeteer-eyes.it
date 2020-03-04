@@ -1,7 +1,6 @@
 const puppeteer = require('puppeteer');
+const eyes = require('../../index');
 
-const eyesUrl = process.argv[4];
-const eyes = require(eyesUrl);
 let browser;
 beforeAll(
   async () =>
