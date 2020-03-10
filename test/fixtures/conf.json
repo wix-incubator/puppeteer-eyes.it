@@ -1,3 +1,4 @@
 {
-  "testMatch": [ "**/test/fixtures/*.customSpec.js"]
+  "testMatch": [ "**/test/fixtures/*.customSpec.js"],
+  "testEnvironment": "node"
 }
