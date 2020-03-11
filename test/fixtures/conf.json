@@ -1,4 +1,3 @@
 {
-  "testMatch": [ "**/test/fixtures/*.customSpec.js"],
-  "reporters": ["jest-standard-reporter"]
+  "testMatch": [ "**/test/fixtures/*.customSpec.js"]
 }

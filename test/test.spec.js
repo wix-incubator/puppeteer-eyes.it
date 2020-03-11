@@ -1,4 +1,4 @@
-const {spawnSync} = require('child_process');
+const execa = require('execa');
 const path = require('path');
 const eyes = require('../index');
 
@@ -46,21 +46,19 @@ describe('Eyes with new baseline, according to versions', () => {
 });
 
 describe('Log', () => {
-  it('should log after eyes success', () => {
-    // eslint-disable-next-line no-control-regex
-    const strColorStripReg = /\x1B[[(?);]{0,2}(;?\d)*./g;
-    const res = spawnSync(
-      'node',
-      [
-        path.join(__dirname, '..', 'node_modules', 'jest', 'bin', 'jest.js'),
-        path.join(__dirname, 'fixtures', 'test.customSpec.js'),
-        `--config=${path.join(__dirname, 'fixtures', 'conf.json')}`,
-      ],
-      {env: process.env},
-    );
+  it('should log after eyes success', async () => {
+    const spawnTestDescription = 'should work';
+    const defaultVersion = '1.0.0';
 
-    expect(res.stdout.toString().replace(strColorStripReg, '')).toContain(
-      'Test Suites: 1 passed, 1 total',
+    const res = await execa('node', [
+      path.join(__dirname, '..', 'node_modules', 'jest', 'bin', 'jest.js'),
+      path.join(__dirname, 'fixtures', 'test.customSpec.js'),
+      `--config=${path.join(__dirname, 'fixtures', 'conf.json')}`,
+      path.join(__dirname, '..', 'index.js'),
+    ]);
+
+    expect(res.stdout).toContain(
+      `eyes comparison succeed. Image key: ${spawnTestDescription} ${defaultVersion}`,
     );
   });
 });
